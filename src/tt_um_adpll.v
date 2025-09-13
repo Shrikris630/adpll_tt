@@ -237,8 +237,8 @@ module adpll_5bit(
   pd i0_pd(.clk(clk),.reset(reset), .clk_ref(clk_ref), .fb_clk(fb_clk), .up(up), .dwn(dwn));
   
   //3. Convert the phase-error to binary
-  ctr i1_ctr(.clk(clk), .reset(reset), .counter(up_error));
-  ctr i2_ctr(.clk(clk), .reset(reset), .counter(dwn_error));
+  ctr i1_ctr(.clk(clk), .reset(upb), .counter(up_error));
+  ctr i2_ctr(.clk(clk), .reset(dwnb), .counter(dwn_error));
   
   acs_5bit i3_sub(.sign_in1(1'b0), .in1(up_error), .sign_in2(1'b1),.in2(dwn_error), .sum(bin_error), .sign_out(error_sign));
  
